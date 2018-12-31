@@ -7,6 +7,9 @@ from scipy import stats
 from rest import false_in_gearsets
 from rest import generate_printable_stats
 
+from rest import overcomplexrandom
+from rest import reuserandom
+
 
 
 def Global_event_Classified_Single_Set(gearsets, tries):
@@ -81,9 +84,6 @@ def Global_event_Classified(gearsets, tries):
         if False not in gearsets[drop_set]:
             continue
         
-#        print( drop_set, drop_item)
-#        print( gearsets[event_sets[0]], gearsets[event_sets[1]], gearsets[event_sets[2]], gearsets[event_sets[3]] )
-#        print( sets_done )
         
         
         tries += 1

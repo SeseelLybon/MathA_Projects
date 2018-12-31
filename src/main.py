@@ -28,8 +28,13 @@ print("start")
 #SuperiourGE(10**6)
 print("-----")
 #temp = ClassifiedGE(10**5)
-temp = ClassifiedGE(10**5, 2)
+#temp = ClassifiedGE(10**5, 2)
 
+import cProfile
+import re
+cProfile.run('SuperiourGE(10**4)')
+
+'''
 
 print("Done")
 
@@ -53,4 +58,4 @@ fig = plt.figure()
 plt.bar(range(len(temp)), temp)
 
 plt.show()
-
+'''

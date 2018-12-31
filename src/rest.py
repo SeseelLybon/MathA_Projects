@@ -3,6 +3,8 @@
 import numpy
 import math
 from scipy import stats
+import numbers
+
 
 def thing(asdf):
     asdf2 = []
@@ -41,3 +43,22 @@ def generate_printable_stats(stat, cost):
     
     max = numpy.max( stat )
     print(    " Max  : %d [%dk tokens]" % ( max,numpy.ceil( max*cost) ) )
+    
+    
+    
+from struct import unpack
+from os import urandom
+
+
+    
+def overcomplexrandom():
+    
+    number = abs(unpack("d",urandom(8))[0])
+    
+    number = abs( math.modf(math.log10(number))[0] )
+    
+    return number
+
+def reuserandom(x):
+    return x*10**3 % 1
+
