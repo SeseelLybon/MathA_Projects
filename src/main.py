@@ -32,7 +32,7 @@ print("-----")
 
 import cProfile
 import re
-cProfile.run('SuperiourGE(10**4)')
+cProfile.run('SuperiourGE(10**5)')
 
 '''
 

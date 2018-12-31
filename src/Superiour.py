@@ -22,37 +22,37 @@ def Global_event_Superiour(gearsets, tries):
     while True:
         tries += 1
         
-        temp = random()
+#        temp = random()
         
-        drop_set = event_sets[ int( temp*4 ) ]
-        temp = temp *10**3 % 1 
-        drop_item = int( temp*6 )
-        temp = temp *10**3 % 1 
-        if temp <= (0.45):
+        drop_set = event_sets[ int( random()*4 ) ]
+#        temp = temp *1000 % 1
+        drop_item = int( random()*6 )
+#        temp = temp *1000 % 1
+        if random() <= (0.45):
             if gearsets[drop_set][drop_item] == True:
                 pass
             else:
                 gearsets[drop_set][drop_item] = True
         
-        temp = temp *10**3 % 1 
-        drop_set = event_sets[ int( temp*4 ) ]
-        temp = temp *10**3 % 1 
-        drop_item = int( temp*6 )
-        temp = temp *10**3 % 1 
-        if temp <= (0.45):
+#        temp = temp *1000 % 1
+        drop_set = event_sets[ int( random()*4 ) ]
+#        temp = temp *1000 % 1
+        drop_item = int( random()*6 )
+#        temp = temp *1000 % 1
+        if random() <= (0.45):
             if gearsets[drop_set][drop_item] == True:
                 pass
             else:
                 gearsets[drop_set][drop_item] = True
         
-        temp = temp *10**3 % 1 
-        drop_set = event_sets[ int( temp*4 ) ]
-        temp = temp *10**3 % 1 
-        drop_item = int( temp*6 )
-        temp = temp *10**3 % 1 
-        if temp <= (0.125):
-            temp = temp *10**3 % 1 
-            if temp <= (0.90):
+#        temp = temp *1000 % 1 
+        drop_set = event_sets[ int( random()*4 ) ]
+#        temp = temp *1000 % 1
+        drop_item = int( random()*6 )
+#        temp = temp *1000 % 1 
+        if random() <= (0.125):
+#            temp = temp *1000 % 1 
+            if random() <= (0.90):
                 if gearsets[drop_set][drop_item] == True:
                     pass
                 else:

@@ -60,5 +60,5 @@ def overcomplexrandom():
     return number
 
 def reuserandom(x):
-    return x*10**3 % 1
+    return x*1000 % 1
 
