@@ -1,9 +1,5 @@
 
 
-import numpy
-import math
-from scipy import stats
-import numbers
 
 
 def thing(asdf):
@@ -12,6 +8,7 @@ def thing(asdf):
         asdf2.append(asdf[i])
 #    print("1", len(asdf2), len(asdf))
     return asdf2
+
 
 def compression(asdf):
     temp = asdf
@@ -22,11 +19,13 @@ def compression(asdf):
             temp = thing(temp)
     return temp
 
+
 def false_in_gearsets(gearsets):
     for s in gearsets:
         if s.count(False) > 0:
             return True
     return False
+
 
 def generate_printable_stats(stat, cost):
     

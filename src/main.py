@@ -30,7 +30,7 @@ print("-----")
 #temp = ClassifiedGE(10**5)
 
 
-temp = ClassifiedGE(10**4, 2)
+temp = ClassifiedGE(10**1, 2)
 
 
 do_profile = False
