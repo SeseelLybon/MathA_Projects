@@ -7,4 +7,5 @@ class ViableCombi:
         self.back = back
 
     def __repr__(self):
-        pass
+        return "{"+str(self.front)+" "+str(self.back)+"}"
+
