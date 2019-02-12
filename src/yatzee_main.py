@@ -1,14 +1,20 @@
-import math
-import random
 
-from externs import gen_throws
+
 from externs import check_throw
-from externs import temp_repr
+from externs import scoring
 
+from player import Player
 
-
+playerone = Player("playerone")
 
 for i in range(50):
-    throws = gen_throws()
-    print(throws)
-    temp_repr(check_throw(throws))
+    print("---------", i)
+    playerone.new_throw()
+    print(playerone.throw)
+    scoring.temp_repr(check_throw(playerone.throw))
+    playerone.rethrow([1,0,1,0,1,0])
+    print(playerone.throw)
+    scoring.temp_repr(check_throw(playerone.throw))
+    playerone.rethrow([0,1,0,1,0,1])
+    print(playerone.throw)
+    scoring.temp_repr(check_throw(playerone.throw))
