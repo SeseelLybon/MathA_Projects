@@ -4,6 +4,7 @@ import random
 from enum import Enum
 from enum import auto as enum_auto
 
+from collections import Counter
 
 class State(Enum):
     yatzee = enum_auto()
@@ -41,8 +42,8 @@ class scoring:
     def temp_repr(cls, throw_states):
         for state, score in throw_states:
             print("\t %s %s"%(state,score))
-        statemax, scoremax = cls.temp_max(throw_states)
-        print("\t max: %s %d"%(statemax, scoremax))
+#        statemax, scoremax = cls.temp_max(throw_states)
+#        print("\t max: %s %d"%(statemax, scoremax))
         return
 
     @classmethod
@@ -60,10 +61,10 @@ class scoring:
 
 
 score_func = {
+    State.yatzee: lambda x: 50,
     State.long_straight: lambda x: 40,
     State.short_straight: lambda x: 30,
     State.full_house: lambda x: 25,
-    State.yatzee: lambda x: 50,
     State.ones: lambda x: scoring.xes_score(x, 1),
     State.twos: lambda x: scoring.xes_score(x, 2),
     State.threes: lambda x: scoring.xes_score(x, 3),
@@ -77,57 +78,48 @@ score_func = {
 
 
 
+def check_score(throw, states):
+    return [ tuple([state, score_func[state](throw)] ) for state in states ]
+
+
+
 
 
 def check_throw(throw):
     throw = sorted(throw)
     results = list()
 
-    if throw[0] == throw[1] == throw[2]  == throw[3] == throw[4]:
-        results.append((State.yatzee,
-                        score_func[State.yatzee](throw)
-                        ))
+    cntr = Counter(throw)
+
+    if 2 in cntr.values() and 3 in cntr.values():
+        results.append(State.full_house)
+    if 3 in cntr.values():
+        results.append(State.three_total)
+    if 4 in cntr.values():
+        results.append(State.four_total)
+    if 5 in cntr.values():
+        results.append(State.yatzee)
 
     if 1 in throw:
-        results.append((State.ones,
-                        score_func[State.ones](throw)
-                        ))
+        results.append(State.ones)
     if 2 in throw:
-        results.append((State.twos,
-                        score_func[State.twos](throw)
-                        ))
+        results.append(State.twos)
     if 3 in throw:
-        results.append((State.threes,
-                        score_func[State.threes](throw)
-                        ))
+        results.append(State.threes)
     if 4 in throw:
-        results.append((State.fours,
-                        score_func[State.fours](throw)
-                        ))
+        results.append(State.fours)
     if 5 in throw:
-        results.append((State.fives,
-                        score_func[State.fives](throw)
-                        ))
+        results.append(State.fives)
     if 6 in throw:
-        results.append((State.sixes,
-                        score_func[State.sixes](throw)
-                        ))
+        results.append(State.sixes)
 
-    if 1 in throw and 2 in throw and 3 in throw and 4 in throw or \
-        2 in throw and 3 in throw and 4 in throw and 5 in throw or \
-        3 in throw and 4 in throw and 5 in throw and 6 in throw:
-        results.append((State.short_straight,
-                        score_func[State.short_straight](throw)
-                        ))
+    if 1 in throw and 2 in throw and 3 in throw and 4 in throw or\
+            2 in throw and 3 in throw and 4 in throw and 5 in throw or\
+            3 in throw and 4 in throw and 5 in throw and 6 in throw:
+        results.append(State.short_straight)
 
     if 1 in throw and 2 in throw and 3 in throw and 4 in throw and 5 in throw or \
-        2 in throw and 3 in throw and 4 in throw and 5 in throw and 6 in throw:
-        results.append((State.long_straight,
-                        score_func[State.long_straight](throw)
-                        ))
-    if throw[0] == throw[1] == throw[2] and throw[3] == throw[4] or \
-        throw[0] == throw[1] and throw[2] == throw[3] == throw[4]:
-        results.append((State.full_house,
-                        score_func[State.full_house](throw)
-                        ))
+            2 in throw and 3 in throw and 4 in throw and 5 in throw and 6 in throw:
+        results.append(State.long_straight)
+
     return results

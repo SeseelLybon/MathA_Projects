@@ -1,6 +1,6 @@
 
 from charter import Chart as charter_chart
-from random import randint
+from numpy import random
 
 class Player:
 
@@ -19,19 +19,10 @@ class Player:
         self.throw = self.gen_throws()
 
     def rethrow(self, locked_dice):
-        if self.num_throws <= 3:
-            self.num_throws += 3
-            for i in locked_dice:
-                if i == 0:
-                    self.throw[0] = randint(1, 6)
-        else:
-            print("Player can't throw more")
+        for i in range(0,4):
+            if not locked_dice[i]:
+                self.throw[i] = random.randint(1,6)
 
     @staticmethod
     def gen_throws():
-        return [randint(1, 6),
-                randint(1, 6),
-                randint(1, 6),
-                randint(1, 6),
-                randint(1, 6)
-                ]
+        return list(random.randint(1, 6, 5))
