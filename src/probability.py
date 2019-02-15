@@ -95,7 +95,7 @@ def chances(throw):
             # roll a
             else:
                 print("\t\t 2 3 4 5 a -> a")
-                print("\t\t 1:", ftpt( 1-(4/6)**2 ))
+                print("\t\t 1:", ftpt( (2/6) ))
 
 
         # contains 2a 2b c
@@ -206,25 +206,28 @@ def chances(throw):
             print("\t\t 2a 2b c -> a b")
             print("\t\t 2:", ftpt( (1/6)+(1/6) ))
         # contains 2a 2b c
-        # needs c && d
-        # p(c) and p(d) = (3/6)*(2/6)
+        # needs c & d
+        # p(c) and p(d) = (3/6)*(2/6)*(4/6)
         # roll a b c
         elif list(cntr.values()).count(2) == 2 and throw[-1] - throw[1] > 3:
             print("\t\t 2a 2b c -> a b c")
             print("\t\t 3:", ftpt( (3/6)*(2/6)*(4/6) ))
 
         # contains a b4
-        # needs c %% d
+        # needs c & d
         # p( c and d ) = (3/6)*(2/6)*(5/6)
         # roll 3b
         if 4 in cntr.values():
-            print("\t\t a b4 -> 3b")
+            prtft("a b4","3b")
             print("\t\t 3:", ftpt( (3/6)*(2/6)*(5/6) ))
 
         # contains 5a
-        # need b %% c %% d
+        # need b & c & d
         # p(b and c and d) = (3/6)*(3/6)*(2/6)
         # roll 4a
         if 5 in cntr.values():
-            print("\t\t 5a -> 4a")
+            prtft("5a","4a")
             print("\t\t 4:", ftpt( (3/6)*(3/6)*(2/6) ))
+
+def prtft( contains, roll ):
+    print("\t\t", contains, "->", roll)
