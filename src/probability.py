@@ -133,7 +133,7 @@ def chances(throw):
 
         # contains 3a 2b with c-a <= 4
         # needs c %% d %% e
-        # p(c and d and e) = (2/6)+(2/6)*(1/6)
+        # p(c and d and e) = (2/6)+(2/6)*(2/6)
         # roll 2a 1b
         if 3 in cntr.values() and 2 in cntr.values() and throw[-1] - throw[1] <= 4:
             print("\t\t", "3a 2b with c-a <= 4", "->", "2a 2b")
