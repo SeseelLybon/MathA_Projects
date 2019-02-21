@@ -5,21 +5,18 @@ import rest
 from scipy import stats
 
 
-
 def LZbosses( max_tries ):
     items = 6*14
-
     print("LZbosses", max_tries, items)
 
-    results_tries = []
-    results_duplicates = []
+    results_tries = [None]*max_tries
     
     #max_tries = 10**7*3 #(Estimated to be 9 hours......................)
 
     for dummy in range(max_tries):
-
+        if dummy%100 == 0:
+            print("At try", dummy, rest.getruntime(),"Seconds")
         gearsets = [False]*items
-        duplicates = 0
         tries = 0
 
         while False in gearsets:
@@ -28,12 +25,11 @@ def LZbosses( max_tries ):
             if drop <= (1/6):
                 drop_classy = int(random()*items)
                 if gearsets[drop_classy] == True:
-                    duplicates += 1
+                    pass
                 else:
                     gearsets[drop_classy] = True
 
-        results_tries.append( tries )
-        results_duplicates.append( duplicates )
+        results_tries[dummy] = tries;
 
     print("Finished the for loop")
     

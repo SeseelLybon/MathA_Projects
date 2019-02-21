@@ -1,6 +1,8 @@
 
 
-
+from time import time
+import numpy
+import math
 
 def thing(asdf):
     asdf2 = []
@@ -61,3 +63,7 @@ def overcomplexrandom():
 def reuserandom(x):
     return x*1000 % 1
 
+starttime = time()
+
+def getruntime():
+    return round(time()-starttime,1);
