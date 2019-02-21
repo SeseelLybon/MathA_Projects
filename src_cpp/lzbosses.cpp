@@ -25,16 +25,19 @@ std::vector<int> LZBosses::event(std::vector<int> &all_tries) {
 
 		notdone = true;
 
+		// Set all gearpieces to false
 		for (int x = 0; x < amountgearpieces; x++) {
 			gearpieces[x] = false;
 		}
 
 		int tries = 0;
-		while(notdone) {
+		while (notdone) {
 			tries += 1;
-			roll = random_o.randomint(1, amountgearpieces)-1;
+			if (random_o.randomint(1, 6) == 1) {
+				roll = random_o.randomint(1, amountgearpieces) - 1;
 
-			gearpieces[roll] = true;
+				gearpieces[roll] = true;
+			}
 
 			if (boolinarray(gearpieces, false) == false) {
 				notdone = false;

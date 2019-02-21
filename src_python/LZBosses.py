@@ -1,6 +1,5 @@
 from random import random
 import numpy
-import math
 import rest
 from scipy import stats
 
@@ -24,25 +23,25 @@ def LZbosses( max_tries ):
             drop = int(random()*6)
             if drop <= (1/6):
                 drop_classy = int(random()*items)
-                if gearsets[drop_classy] == True:
+                if gearsets[drop_classy]:
                     pass
                 else:
                     gearsets[drop_classy] = True
 
-        results_tries[dummy] = tries;
+        results_tries[dummy] = tries
 
     print("Finished the for loop")
     
     mean = numpy.mean( results_tries )
-    print(    " Mean : %d" % ( mean ) )
+    print(    " Mean : %d" % mean )
     
     mode = stats.mode( results_tries )[0]
-    print(    " Mode : %d" % ( mode) )
+    print(    " Mode : %d" % mode )
     
-    min = numpy.min( results_tries )
-    print(    " Min : %d" % ( min) )
+    mini = numpy.min( results_tries )
+    print(    " Min : %d" % mini )
     
-    max = numpy.max( results_tries )
-    print(    " Max : %d" % ( max) )
+    maxi = numpy.max( results_tries )
+    print(    " Max : %d" % maxi )
     
     return results_tries
