@@ -2,6 +2,7 @@
 
 #include "rest.h"
 
+random_c random_o = random_c();
 
 random_c::random_c() {
 		rng.seed(std::random_device()());
@@ -24,4 +25,14 @@ auto start_time = std::chrono::system_clock::now();
 
 double getruntime() {
 	return round(( std::chrono::system_clock::now() - start_time).count()/1000000)/10;
+}
+
+bool boolinarray(bool* boolarray, bool contains, int amountgearpieces) {
+	bool temp = false;
+	for (int i = 0; i < amountgearpieces; i++) {
+		if (boolarray[i] == contains) {
+			temp = true;
+		}
+	}
+	return temp;
 }

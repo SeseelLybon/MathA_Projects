@@ -7,6 +7,7 @@
 #include <chrono>
 #include <math.h>
 
+
 class random_c {
 private:
 	std::mt19937 rng;
@@ -18,6 +19,10 @@ public:
 
 };
 
+extern random_c random_o;
+
 int averagearray(std::vector<short> &list, int length);
 
 double getruntime();
+
+bool boolinarray(bool* boolarray, bool contains, int amountgearpieces);

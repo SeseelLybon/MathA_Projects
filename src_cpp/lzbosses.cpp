@@ -1,13 +1,15 @@
 
 #include "lzbosses.h"
 
-random_c random_o = random_c();
+constexpr int amountgearpieces = (6 * 14);
 
 LZBosses::LZBosses(int ma_tri) {
 	max_tries = ma_tri;
 }
 
 std::vector<short> LZBosses::event(std::vector<short> &all_tries) {
+
+//	random_c random_o = random_c();
 	for (int x = 0; x < max_tries; x++) {
 		all_tries[x] = 0;
 	}
@@ -39,21 +41,11 @@ std::vector<short> LZBosses::event(std::vector<short> &all_tries) {
 				gearpieces[roll] = true;
 			}
 
-			if (boolinarray(gearpieces, false) == false) {
+			if (boolinarray(gearpieces, false, amountgearpieces) == false) {
 				notdone = false;
 			}
 		}
 		all_tries[i] = tries;
 	}
 	return all_tries;
-}
-
-bool LZBosses::boolinarray(bool* boolarray, bool contains) {
-	bool temp = false;
-	for (int i = 0; i < amountgearpieces; i++) {
-		if (boolarray[i] == contains) {
-			temp = true;
-		}
-	}
-	return temp;
 }

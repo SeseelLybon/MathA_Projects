@@ -35,10 +35,10 @@ def generate_printable_stats(stat, cost):
     
     mean = numpy.mean( stat )
     print(    " Mean : %d [%dk tokens]" % ( mean, numpy.ceil(mean*cost) ) )
-    
+
     mode = stats.mode( stat )[0]
     print(    " Mode : %d [%dk tokens]" % ( mode, numpy.ceil(mode*cost) ) )
-    
+
     min = numpy.min( stat )
     print(    " Min  : %d [%dk tokens]" % ( min, numpy.ceil(min*cost) ) )
     

@@ -30,7 +30,8 @@ print("-----")
 #temp = ClassifiedGE(10**5)
 
 
-temp = LZbosses(10**4)
+#temp = LZbosses(1000)
+temp = ClassifiedGE(1000)
 
 
 do_profile = False
