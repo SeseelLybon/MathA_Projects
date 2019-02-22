@@ -7,7 +7,7 @@ LZBosses::LZBosses(int ma_tri) {
 	max_tries = ma_tri;
 }
 
-std::vector<int> LZBosses::event(std::vector<int> &all_tries) {
+std::vector<short> LZBosses::event(std::vector<short> &all_tries) {
 	for (int x = 0; x < max_tries; x++) {
 		all_tries[x] = 0;
 	}

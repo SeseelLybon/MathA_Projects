@@ -12,7 +12,7 @@ int random_c::randomint(int min, int max) {
 		return dist6(rng) % max + min;
 }
 
-int averagearray(std::vector<int> &list, int length) {
+int averagearray(std::vector<short> &list, int length) {
 	int sum = 0;
 	for (int i = 0; i < length; i++) {
 		sum += list[i];

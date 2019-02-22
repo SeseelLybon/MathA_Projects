@@ -11,7 +11,7 @@ constexpr int max_tries = (10E5);
 void format_results();
 
 
-std::vector<int> all_tries(max_tries);
+std::vector<short> all_tries(max_tries);
 
 int main()
 {

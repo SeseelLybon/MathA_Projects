@@ -18,6 +18,6 @@ public:
 
 };
 
-int averagearray(std::vector<int> &list, int length);
+int averagearray(std::vector<short> &list, int length);
 
 double getruntime();
