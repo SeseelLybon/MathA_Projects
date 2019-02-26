@@ -11,7 +11,7 @@ class Player:
         self.num_throws = 0
         self.throw = list()
 
-    def isDone(self):
+    def isDone(self) -> bool:
         return self.done
 
     def new_throw(self):
@@ -24,5 +24,5 @@ class Player:
                 self.throw[i] = random.randint(1,6)
 
     @staticmethod
-    def gen_throws():
+    def gen_throws() -> list:
         return list(random.randint(1, 6, 5))

@@ -47,7 +47,7 @@ class scoring:
         return
 
     @classmethod
-    def temp_max(cls, throwstates):
+    def temp_max(cls, throwstates) -> tuple:
         statemax, scoremax = 0,0
         for state, score in throwstates:
             if score > scoremax:
@@ -56,7 +56,7 @@ class scoring:
 
 
     @staticmethod
-    def xes_score(throws, y):
+    def xes_score(throws, y) -> int:
         return throws.count(y)*y
 
 

@@ -17,13 +17,13 @@ class Chart:
         self.yatzee = 0
         self.chance = 0
 
-    def sum_top(self):
+    def sum_top(self) -> int:
         top_sum = self.ones + self.twos + self.threes +\
                   self.fours + self.fives + self.sixes
         if top_sum > 63:
             top_sum += 35
         return top_sum
 
-    def sum_bottom(self):
+    def sum_bottom(self) -> int:
         return self.three_total + self.fours_total + self.full_house +\
                self.short_straight + self.long_straight + self.yatzee + self.chance
