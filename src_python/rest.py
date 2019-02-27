@@ -3,6 +3,7 @@
 from time import time
 import numpy
 import math
+import statistics
 
 def thing(asdf):
     asdf2 = []
@@ -36,7 +37,7 @@ def generate_printable_stats(stat, cost):
     mean = numpy.mean( stat )
     print(    " Mean : %d [%dk tokens]" % ( mean, numpy.ceil(mean*cost) ) )
 
-    mode = stats.mode( stat )[0]
+    mode = statistics.mode( stat )[0]
     print(    " Mode : %d [%dk tokens]" % ( mode, numpy.ceil(mode*cost) ) )
 
     min = numpy.min( stat )
